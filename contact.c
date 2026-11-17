@@ -432,9 +432,15 @@ int searchbyindex(AddressBook *addressBook)
 void editContact(AddressBook *addressBook)
 {
 	/* Define the logic for Editcontact */
+	matchcount = 0;
+    foundindex = -1;
     int choice;
     searchContact(addressBook);
-    if(matchcount > 1)
+	if(matchcount == 1)
+    {
+        foundindex = matchedindex[0];
+    }
+    else if(matchcount > 1)
     {
         int sno;
         printf("enter the serial number:");
